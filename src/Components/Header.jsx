@@ -1,12 +1,18 @@
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Header = () => {
   return (
     <header className='h-28 px-4 lg:px-10 flex justify-between items-center'>
       <Link to='/'>
         <img className='w-44' src='/img/logo.png' alt='vanlife logo' />
       </Link>
       <nav className='flex gap-2 text-center'>
+        <Link
+          className='w-12 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
+          to='/host'
+        >
+          Host
+        </Link>
         <Link
           className='w-12 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
           to='/about'
@@ -23,4 +29,4 @@ const Navbar = () => {
     </header>
   );
 };
-export default Navbar;
+export default Header;

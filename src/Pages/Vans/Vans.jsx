@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import Loading from '../../Components/Loading';
+
 const Vans = () => {
   const [vans, setVans] = useState([]);
 
@@ -50,22 +52,26 @@ const Vans = () => {
     <main className='m-6'>
       <h1 className='font-bold text-2xl'>Explore our vans options</h1>
       <div className='flex gap-4 my-4 mb-12 relative'>
-        <button className='text-center rounded-md p-1 w-20 text-zinc-700 bg-orange-100'>
+        <button className='text-center rounded-md p-1 w-20 text-zinc-700 bg-orange-100 hover:bg-orange-200'>
           Simple
         </button>
-        <button className='text-center rounded-md p-1 w-20 text-zinc-700 bg-orange-100'>
+        <button className='text-center rounded-md p-1 w-20 text-zinc-700 bg-orange-100 hover:bg-orange-200'>
           Luxury
         </button>
-        <button className='text-center rounded-md p-1 w-20 text-zinc-700 bg-orange-100'>
+        <button className='text-center rounded-md p-1 w-20 text-zinc-700 bg-orange-100 hover:bg-orange-200'>
           Rugged
         </button>
         <button className='underline absolute right-0 text-zinc-700 hover:text-zinc-900'>
           Clear filters
         </button>
       </div>
-      <div className='grid grid-cols-2 gap-6'>
-        <VanTile />
-      </div>
+      {vans.length > 0 ? (
+        <div className='grid grid-cols-2 gap-6'>
+          <VanTile />
+        </div>
+      ) : (
+        <Loading />
+      )}
     </main>
   );
 };

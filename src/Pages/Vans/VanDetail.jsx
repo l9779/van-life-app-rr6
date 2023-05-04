@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-import { Arrow } from '../Components/Icons';
+import { Arrow } from '../../Components/Icons';
+import Loading from '../../Components/Loading';
 
 const VanDetail = () => {
   const params = useParams();
@@ -45,7 +46,7 @@ const VanDetail = () => {
           </button>
         </article>
       ) : (
-        <h2 className='font-bold text-4xl text-center py-44'>Loading...</h2>
+        <Loading />
       )}
     </main>
   );
