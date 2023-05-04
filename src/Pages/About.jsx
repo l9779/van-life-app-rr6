@@ -1,3 +1,5 @@
+import BtnExploreVans from '../Components/BtnExploreVans';
+
 const About = () => {
   return (
     <main>
@@ -20,9 +22,10 @@ const About = () => {
             Your destination is waiting.
             <br /> Your van is ready.
           </h2>
-          <button className='mt-2 bg-zinc-800 hover:bg-zinc-700 text-white font-bold p-3 rounded-xl'>
-            Explore our vans
-          </button>
+          <BtnExploreVans
+            text='Explore our vans'
+            classList='mt-2 bg-zinc-800 hover:bg-zinc-700 text-white font-bold p-3 rounded-xl'
+          />
         </div>
       </article>
     </main>

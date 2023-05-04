@@ -1,3 +1,5 @@
+import BtnExploreVans from '../Components/BtnExploreVans';
+
 const Home = () => {
   return (
     <div className='home-bg bg-cover h-96 md:h-100 px-6 mb-20 flex flex-col justify-around'>
@@ -8,9 +10,10 @@ const Home = () => {
         Add adventure to your life by joining the #vanlife movement. Rent the
         perfect van to make your perfect road trip.
       </p>
-      <button className='w-[100%] md:w-[50%] rounded-md mb-10 mx-auto py-2 text-white bg-orange-400 hover:bg-orange-500'>
-        Find your van
-      </button>
+      <BtnExploreVans
+        text='Find your van'
+        classList='w-[100%] md:w-[50%] rounded-md mb-10 mx-auto py-2 text-white bg-orange-400 hover:bg-orange-500'
+      />
     </div>
   );
 };
