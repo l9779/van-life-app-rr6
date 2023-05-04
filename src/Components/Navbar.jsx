@@ -7,8 +7,18 @@ const Navbar = () => {
         <img className='w-44' src='/img/logo.png' alt='vanlife logo' />
       </Link>
       <nav className='flex gap-8'>
-        <Link to='/about'>About</Link>
-        <Link to='/'>Vans</Link>
+        <Link
+          className='text-zinc-800 hover:underline hover:text-black hover:font-semibold'
+          to='/about'
+        >
+          About
+        </Link>
+        <Link
+          className='text-zinc-800 hover:underline hover:text-black hover:font-semibold'
+          to='/vans'
+        >
+          Vans
+        </Link>
       </nav>
     </header>
   );

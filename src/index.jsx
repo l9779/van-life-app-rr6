@@ -5,8 +5,10 @@ import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import Home from './Pages/Home';
 import About from './Pages/About';
+import Vans from './Pages/Vans';
+import './server';
 import './index.css';
-//https://youtu.be/nDGA3km5He4?t=2971
+
 export const App = () => {
   return (
     <BrowserRouter>
@@ -14,6 +16,7 @@ export const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
+        <Route path='/vans' element={<Vans />} />
       </Routes>
       <Footer />
     </BrowserRouter>
