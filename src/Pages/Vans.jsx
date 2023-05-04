@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Vans = () => {
   const [vans, setVans] = useState([]);
@@ -18,13 +19,13 @@ const Vans = () => {
     getData();
   }, []);
 
-  const VanCard = () => {
+  const VanTile = () => {
     return (
       <>
         {vans.map((van) => {
           const { id, name, price, imageUrl, type } = van;
           return (
-            <div key={id}>
+            <Link to={`/vans/${id}`} key={id}>
               <img className='w-48 rounded-md' src={imageUrl} alt={name} />
               <div className='flex justify-between'>
                 <h2 className='font-bold text-lg capitalize'>{name}</h2>
@@ -38,7 +39,7 @@ const Vans = () => {
               >
                 {type}
               </h2>
-            </div>
+            </Link>
           );
         })}
       </>
@@ -63,7 +64,7 @@ const Vans = () => {
         </button>
       </div>
       <div className='grid grid-cols-2 gap-6'>
-        <VanCard />
+        <VanTile />
       </div>
     </main>
   );

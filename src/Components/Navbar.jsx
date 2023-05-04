@@ -6,15 +6,15 @@ const Navbar = () => {
       <Link to='/'>
         <img className='w-44' src='/img/logo.png' alt='vanlife logo' />
       </Link>
-      <nav className='flex gap-8'>
+      <nav className='flex gap-2 text-center'>
         <Link
-          className='text-zinc-800 hover:underline hover:text-black hover:font-semibold'
+          className='w-12 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
           to='/about'
         >
           About
         </Link>
         <Link
-          className='text-zinc-800 hover:underline hover:text-black hover:font-semibold'
+          className='w-12 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
           to='/vans'
         >
           Vans
