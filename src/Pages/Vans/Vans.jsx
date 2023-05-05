@@ -49,7 +49,7 @@ const Vans = () => {
   };
 
   return (
-    <main className='p-6 bg-orange-50'>
+    <div className='p-6'>
       <h1 className='font-bold text-2xl'>Explore our vans options</h1>
       <div className='flex gap-4 my-4 mb-12 relative'>
         <button className='text-center rounded-md p-1 w-20 text-zinc-700 bg-orange-100 hover:bg-orange-200'>
@@ -72,7 +72,7 @@ const Vans = () => {
       ) : (
         <Loading />
       )}
-    </main>
+    </div>
   );
 };
 export default Vans;

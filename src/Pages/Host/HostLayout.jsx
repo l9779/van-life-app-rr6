@@ -1,30 +1,47 @@
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const HostLayout = () => {
+  const activeStyle = {
+    fontWeight: 'bold',
+    textDecoration: 'underline',
+    color: '#161616',
+  };
+
   return (
-    <main className='min-h-screen p-6 bg-orange-50'>
+    <>
       <nav className='flex gap-1'>
-        <Link
+        <NavLink
           className='text-center w-24 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
+          style={({ isActive }) => (isActive ? activeStyle : null)}
+          end
           to='/host'
         >
           Dashboard
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           className='text-center w-24 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
+          style={({ isActive }) => (isActive ? activeStyle : null)}
           to='/host/income'
         >
           Income
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           className='text-center w-24 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
+          style={({ isActive }) => (isActive ? activeStyle : null)}
+          to='/host/vans'
+        >
+          Vans
+        </NavLink>
+        <NavLink
+          className='text-center w-24 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
+          style={({ isActive }) => (isActive ? activeStyle : null)}
           to='/host/reviews'
         >
           Reviews
-        </Link>
+        </NavLink>
       </nav>
       <Outlet />
-    </main>
+    </>
   );
 };
 export default HostLayout;

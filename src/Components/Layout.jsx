@@ -6,8 +6,10 @@ import Footer from './Footer';
 const Layout = () => {
   return (
     <>
-      <Header />
-      <Outlet />
+      <main className='bg-orange-50 min-h-screen'>
+        <Header />
+        <Outlet />
+      </main>
       <Footer />
     </>
   );

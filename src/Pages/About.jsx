@@ -2,7 +2,7 @@ import BtnExploreVans from '../Components/BtnExploreVans';
 
 const About = () => {
   return (
-    <main className='bg-orange-50 pb-10'>
+    <div className='mb-10'>
       <img src='/img/about-img.png' alt='van' />
       <article className='px-6'>
         <h1 className='text-3xl font-bold my-6'>
@@ -28,7 +28,7 @@ const About = () => {
           />
         </div>
       </article>
-    </main>
+    </div>
   );
 };
 export default About;
