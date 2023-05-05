@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-//https://youtu.be/nDGA3km5He4?t=9956
+import { Link } from 'react-router-dom';
+
 import Loading from '../../Components/Loading';
 
 const HostVans = () => {
@@ -27,7 +28,7 @@ const HostVans = () => {
           {vans.map((van) => {
             const { id, name, price, imageUrl } = van;
             return (
-              <article key={id}>
+              <Link to={`/host/vans/${id}`} key={id}>
                 <div className='grid grid-cols-4 grid-rows-2 rounded-md gap-x-4 p-4 bg-white'>
                   <img
                     className='rounded-md col-span-1 row-span-2'
@@ -37,7 +38,7 @@ const HostVans = () => {
                   <h2 className='col-span-3 self-end font-bold'>{name}</h2>
                   <p className='col-span-3 text-slate-600'>${price}/day</p>
                 </div>
-              </article>
+              </Link>
             );
           })}
         </div>
