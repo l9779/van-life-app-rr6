@@ -2,7 +2,7 @@ import { Link, Outlet } from 'react-router-dom';
 
 const HostLayout = () => {
   return (
-    <>
+    <main className='min-h-screen p-6 bg-orange-50'>
       <nav className='space-x-6'>
         <Link
           className='w-12 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
@@ -23,8 +23,8 @@ const HostLayout = () => {
           Reviews
         </Link>
       </nav>
-      <Outlet></Outlet>
-    </>
+      <Outlet />
+    </main>
   );
 };
 export default HostLayout;

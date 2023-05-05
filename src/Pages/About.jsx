@@ -2,7 +2,7 @@ import BtnExploreVans from '../Components/BtnExploreVans';
 
 const About = () => {
   return (
-    <main>
+    <main className='bg-orange-50 pb-10'>
       <img src='/img/about-img.png' alt='van' />
       <article className='px-6'>
         <h1 className='text-3xl font-bold my-6'>
@@ -17,7 +17,7 @@ const About = () => {
           Our team is full of vanlife enthusiasts who know firsthand the magic
           of touring the world on 4 wheels.
         </p>
-        <div className='bg-orange-300 rounded-sm p-8 mb-10 '>
+        <div className='bg-orange-300 rounded-sm p-8'>
           <h2 className='text-xl font-bold mb-2'>
             Your destination is waiting.
             <br /> Your van is ready.

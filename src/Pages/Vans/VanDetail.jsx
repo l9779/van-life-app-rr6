@@ -23,7 +23,7 @@ const VanDetail = () => {
   }, [params.id]);
 
   return (
-    <main className='m-6'>
+    <main className='p-6 bg-orange-50'>
       <Link className='underline flex' to={'/vans'}>
         <Arrow /> Back to all vans
       </Link>
