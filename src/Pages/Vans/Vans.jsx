@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 import Loading from '../../Components/Loading';
 
 const Vans = () => {
   const [vans, setVans] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const typeFilter = searchParams.get('type');
+  console.log(typeFilter);
 
   useEffect(() => {
     async function getData() {
@@ -20,16 +24,25 @@ const Vans = () => {
 
     getData();
   }, []);
-  //https://youtu.be/nDGA3km5He4?t=13204
+
   const VanTile = () => {
+    const displayedVans = typeFilter
+      ? vans.filter((van) => van.type === typeFilter)
+      : vans;
+
     return (
       <>
-        {vans.map((van) => {
+        {displayedVans.map((van) => {
           const { id, name, price, imageUrl, type } = van;
+
           return (
-            <Link className='w-48' to={`/vans/${id}`} key={id}>
-              <img className='w-48 rounded-md' src={imageUrl} alt={name} />
-              <div className='flex relative'>
+            <Link
+              className='w-54 p-4 bg-white rounded-sm'
+              to={`/vans/${id}`}
+              key={id}
+            >
+              <img className='min-w-48 rounded-md' src={imageUrl} alt={name} />
+              <div className='min-w-48 flex relative'>
                 <h2 className='font-bold text-lg capitalize'>{name}</h2>
                 <div className='flex flex-col absolute right-0'>
                   <h2 className='font-bold text-lg'>${price}</h2>
@@ -51,19 +64,32 @@ const Vans = () => {
   return (
     <div className='p-6'>
       <h1 className='font-bold text-2xl'>Explore our vans options</h1>
+      https://youtu.be/nDGA3km5He4?t=14517
       <div className='flex gap-4 my-4 mb-12 relative'>
-        <button className='text-center rounded-md p-1 w-20 text-zinc-700 bg-orange-100 hover:bg-orange-200'>
+        <Link
+          to='?type=simple'
+          className='text-center rounded-md p-1 w-20 text-zinc-700 bg-orange-100 hover:bg-orange-200 active:bg-orange-300'
+        >
           Simple
-        </button>
-        <button className='text-center rounded-md p-1 w-20 text-zinc-700 bg-orange-100 hover:bg-orange-200'>
+        </Link>
+        <Link
+          to='?type=luxury'
+          className='text-center rounded-md p-1 w-20 text-zinc-700 bg-orange-100 hover:bg-orange-200 active:bg-orange-300'
+        >
           Luxury
-        </button>
-        <button className='text-center rounded-md p-1 w-20 text-zinc-700 bg-orange-100 hover:bg-orange-200'>
+        </Link>
+        <Link
+          to='?type=rugged'
+          className='text-center rounded-md p-1 w-20 text-zinc-700 bg-orange-100 hover:bg-orange-200 active:bg-orange-300'
+        >
           Rugged
-        </button>
-        <button className='underline absolute right-0 text-zinc-700 hover:text-zinc-900'>
+        </Link>
+        <Link
+          to='.'
+          className='underline absolute right-0 text-zinc-700 hover:text-zinc-900'
+        >
           Clear filters
-        </button>
+        </Link>
       </div>
       {vans.length > 0 ? (
         <section className='grid grid-cols-2 lg:grid-cols-3 gap-6'>
