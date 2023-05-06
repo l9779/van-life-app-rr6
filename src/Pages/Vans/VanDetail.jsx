@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-import { Arrow } from '../../Components/Icons';
 import Loading from '../../Components/Loading';
 
 const VanDetail = () => {
@@ -25,7 +24,7 @@ const VanDetail = () => {
   return (
     <div className='p-6'>
       <Link className='underline flex' to={'/vans'}>
-        <Arrow /> Back to all vans
+        &larr; <span> Back to all vans </span>
       </Link>
 
       {van ? (

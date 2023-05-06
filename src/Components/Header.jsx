@@ -16,21 +16,21 @@ const Header = () => {
         <NavLink
           className='w-12 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
           style={({ isActive }) => (isActive ? activeStyle : null)}
-          to='/host'
+          to='host'
         >
           Host
         </NavLink>
         <NavLink
           className='w-12 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
           style={({ isActive }) => (isActive ? activeStyle : null)}
-          to='/about'
+          to='about'
         >
           About
         </NavLink>
         <NavLink
           className='w-12 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
           style={({ isActive }) => (isActive ? activeStyle : null)}
-          to='/vans'
+          to='vans'
         >
           Vans
         </NavLink>

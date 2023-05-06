@@ -14,28 +14,28 @@ const HostLayout = () => {
           className='text-center w-24 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
           style={({ isActive }) => (isActive ? activeStyle : null)}
           end
-          to='/host'
+          to='.'
         >
           Dashboard
         </NavLink>
         <NavLink
           className='text-center w-24 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
           style={({ isActive }) => (isActive ? activeStyle : null)}
-          to='/host/income'
+          to='income'
         >
           Income
         </NavLink>
         <NavLink
           className='text-center w-24 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
           style={({ isActive }) => (isActive ? activeStyle : null)}
-          to='/host/vans'
+          to='vans'
         >
           Vans
         </NavLink>
         <NavLink
           className='text-center w-24 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
           style={({ isActive }) => (isActive ? activeStyle : null)}
-          to='/host/reviews'
+          to='reviews'
         >
           Reviews
         </NavLink>
