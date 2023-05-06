@@ -73,10 +73,9 @@ const HostVanDetail = () => {
               Photos
             </NavLink>
           </nav>
-          <div className='col-span-3'>
-            https://youtu.be/nDGA3km5He4?t=12233
-            <Outlet />
-          </div>
+          <section className='col-span-3 p-2'>
+            <Outlet context={van} />
+          </section>
         </article>
       ) : (
         <Loading />
