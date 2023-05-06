@@ -24,7 +24,7 @@ const About = () => {
           </h2>
           <BtnExploreVans
             text='Explore our vans'
-            classList='mt-2 bg-zinc-800 hover:bg-zinc-700 text-white font-bold p-3 rounded-xl'
+            classList='mt-2 text-white font-bold p-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-500'
           />
         </div>
       </article>

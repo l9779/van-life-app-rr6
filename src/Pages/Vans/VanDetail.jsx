@@ -26,7 +26,6 @@ const VanDetail = () => {
       <Link className='underline flex' to={'/vans'}>
         &larr; <span> Back to all vans </span>
       </Link>
-
       {van ? (
         <article className='mt-8'>
           <img className='rounded-md mb-8' src={van.imageUrl} alt={van.name} />
@@ -40,7 +39,7 @@ const VanDetail = () => {
             <b className='text-lg'>${van.price}</b>/day
           </p>
           <p className='text-sm mb-4'>{van.description}</p>
-          <button className='w-[100%] md:w-[50%] rounded-md mx-auto py-2 text-white bg-orange-400 hover:bg-orange-500'>
+          <button className='w-[100%] md:w-[50%] rounded-md mx-auto py-2 text-white bg-orange-400 hover:bg-orange-500 active:bg-orange-300'>
             Rent this van
           </button>
         </article>

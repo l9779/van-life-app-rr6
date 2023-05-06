@@ -12,7 +12,7 @@ const Home = () => {
       </p>
       <BtnExploreVans
         text='Find your van'
-        classList='w-[100%] md:w-[50%] rounded-md mb-10 mx-auto py-2 text-white bg-orange-400 hover:bg-orange-500'
+        classList='w-[100%] md:w-[50%] rounded-md mb-10 mx-auto py-2 text-white bg-orange-400 hover:bg-orange-500 active:bg-orange-300 '
       />
     </div>
   );

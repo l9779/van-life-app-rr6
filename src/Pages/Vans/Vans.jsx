@@ -20,20 +20,20 @@ const Vans = () => {
 
     getData();
   }, []);
-
+  //https://youtu.be/nDGA3km5He4?t=13204
   const VanTile = () => {
     return (
       <>
         {vans.map((van) => {
           const { id, name, price, imageUrl, type } = van;
           return (
-            <Link to={`/vans/${id}`} key={id}>
+            <Link className='w-48' to={`/vans/${id}`} key={id}>
               <img className='w-48 rounded-md' src={imageUrl} alt={name} />
-              <div className='flex justify-between'>
+              <div className='flex relative'>
                 <h2 className='font-bold text-lg capitalize'>{name}</h2>
-                <div className='flex flex-col'>
+                <div className='flex flex-col absolute right-0'>
                   <h2 className='font-bold text-lg'>${price}</h2>
-                  <p className='text-sm leading-3 text-right'>/day</p>
+                  <span className='text-sm leading-3 self-end'>/day</span>
                 </div>
               </div>
               <h2
@@ -66,9 +66,9 @@ const Vans = () => {
         </button>
       </div>
       {vans.length > 0 ? (
-        <div className='grid grid-cols-2 gap-6'>
+        <section className='grid grid-cols-2 lg:grid-cols-3 gap-6'>
           <VanTile />
-        </div>
+        </section>
       ) : (
         <Loading />
       )}
