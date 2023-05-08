@@ -9,7 +9,6 @@ const Vans = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const typeFilter = searchParams.get('type');
-  console.log(typeFilter);
 
   useEffect(() => {
     async function getData() {
@@ -38,22 +37,25 @@ const Vans = () => {
           return (
             <Link
               className='w-54 p-4 bg-white rounded-sm'
-              to={`/vans/${id}`}
+              to={id}
+              state={{ search: searchParams.toString(), type: typeFilter }}
               key={id}
             >
               <img className='min-w-48 rounded-md' src={imageUrl} alt={name} />
-              <div className='min-w-48 flex relative'>
-                <h2 className='font-bold text-lg capitalize'>{name}</h2>
-                <div className='flex flex-col absolute right-0'>
-                  <h2 className='font-bold text-lg'>${price}</h2>
-                  <span className='text-sm leading-3 self-end'>/day</span>
+              <div className='min-w-48 sm:grid sm:grid-cols-3'>
+                <h2 className='font-bold text-base sm:text-lg sm:col-span-2 capitalize'>
+                  {name}
+                </h2>
+                <div className='sm:col-span-1 justify-self-end'>
+                  <b className='font-bold text-base sm:text-lg'>${price}</b>
+                  <span className='text-sm'>/day</span>
                 </div>
+                <h2
+                  className={`text-white text-center font-semibold rounded-md p-1 mt-2 w-20 capitalize bg-${type}`}
+                >
+                  {type}
+                </h2>
               </div>
-              <h2
-                className={`text-white text-center font-semibold rounded-md p-1 w-20 capitalize bg-${type}`}
-              >
-                {type}
-              </h2>
             </Link>
           );
         })}
@@ -62,37 +64,54 @@ const Vans = () => {
   };
 
   return (
-    <div className='p-6'>
+    <div className='p-4'>
       <h1 className='font-bold text-2xl'>Explore our vans options</h1>
-      https://youtu.be/nDGA3km5He4?t=14517
-      <div className='flex gap-4 my-4 mb-12 relative'>
-        <Link
-          to='?type=simple'
-          className='text-center rounded-md p-1 w-20 text-zinc-700 bg-orange-100 hover:bg-orange-200 active:bg-orange-300'
+      https://youtu.be/nDGA3km5He4?t=17250
+      <div className='flex gap-4 sm:gap-x-4 my-4 mb-8'>
+        <button
+          onClick={() => setSearchParams({ type: 'simple' })}
+          className={`text-center rounded-md min-w-[20%] sm:min-w-[10%] py-1 text-zinc-700 hover:bg-orange-200 active:bg-orange-300 
+            ${
+              typeFilter === 'simple'
+                ? 'bg-orange-300 font-bold '
+                : 'bg-orange-100'
+            }`}
         >
           Simple
-        </Link>
-        <Link
-          to='?type=luxury'
-          className='text-center rounded-md p-1 w-20 text-zinc-700 bg-orange-100 hover:bg-orange-200 active:bg-orange-300'
+        </button>
+        <button
+          onClick={() => setSearchParams({ type: 'luxury' })}
+          className={`text-center rounded-md min-w-[20%] sm:min-w-[10%] py-1 text-zinc-700 hover:bg-orange-200 active:bg-orange-300 
+            ${
+              typeFilter === 'luxury'
+                ? 'bg-orange-300 font-bold '
+                : 'bg-orange-100'
+            }`}
         >
           Luxury
-        </Link>
-        <Link
-          to='?type=rugged'
-          className='text-center rounded-md p-1 w-20 text-zinc-700 bg-orange-100 hover:bg-orange-200 active:bg-orange-300'
+        </button>
+        <button
+          onClick={() => setSearchParams({ type: 'rugged' })}
+          className={`text-center rounded-md min-w-[20%] sm:min-w-[10%] py-1 text-zinc-700 hover:bg-orange-200 active:bg-orange-300 
+            ${
+              typeFilter === 'rugged'
+                ? 'bg-orange-300 font-bold '
+                : 'bg-orange-100'
+            }`}
         >
           Rugged
-        </Link>
-        <Link
-          to='.'
-          className='underline absolute right-0 text-zinc-700 hover:text-zinc-900'
-        >
-          Clear filters
-        </Link>
+        </button>
+        {typeFilter && (
+          <button
+            onClick={() => setSearchParams({})}
+            className='underline w-2/4 sm:w-4/5 flex justify-end text-zinc-700 hover:text-zinc-900'
+          >
+            Clear filters
+          </button>
+        )}
       </div>
       {vans.length > 0 ? (
-        <section className='grid grid-cols-2 lg:grid-cols-3 gap-6'>
+        <section className='grid grid-cols-2 md:grid-cols-3 gap-4'>
           <VanTile />
         </section>
       ) : (

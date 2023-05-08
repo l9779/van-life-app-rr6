@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 import Loading from '../../Components/Loading';
 
 const VanDetail = () => {
   const params = useParams();
   const [van, setVan] = useState(null);
+  const search = useLocation().state?.search || null;
+  const type = useLocation().state?.type || 'all';
 
   useEffect(() => {
     async function fetchData() {
@@ -23,8 +25,8 @@ const VanDetail = () => {
 
   return (
     <div className='p-6'>
-      <Link className='underline flex' to={'/vans'}>
-        &larr; <span> Back to all vans </span>
+      <Link className='underline' to={`./..?${search}`}>
+        &larr; <span> Back to {type} vans</span>
       </Link>
       {van ? (
         <article className='mt-8'>
