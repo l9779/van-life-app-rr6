@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className='w-full h-20 flex justify-center items-center bg-zinc-800'>
+    <footer className='w-full h-20 absolute bottom-0 flex justify-center items-center bg-zinc-800'>
       <p className='text-sm text-gray-400'>Ⓒ 2023 #VANLIFE</p>
     </footer>
   );

@@ -64,10 +64,10 @@ const Vans = () => {
   };
 
   return (
-    <div className='p-4'>
+    <div className='pt-4 px-4 md:px-28 lg:px-44 pb-24'>
       <h1 className='font-bold text-2xl'>Explore our vans options</h1>
       https://youtu.be/nDGA3km5He4?t=17250
-      <div className='flex gap-4 sm:gap-x-4 my-4 mb-8'>
+      <div className='flex gap-4 sm:gap-x-4 mt-4 mb-8 sm:px-8'>
         <button
           onClick={() => setSearchParams({ type: 'simple' })}
           className={`text-center rounded-md min-w-[20%] sm:min-w-[10%] py-1 text-zinc-700 hover:bg-orange-200 active:bg-orange-300 
@@ -104,14 +104,14 @@ const Vans = () => {
         {typeFilter && (
           <button
             onClick={() => setSearchParams({})}
-            className='underline w-2/4 sm:w-4/5 flex justify-end text-zinc-700 hover:text-zinc-900'
+            className='underline w-2/4 sm:w-4/5 flex justify-end sm:justify-start text-zinc-700 hover:text-zinc-900'
           >
             Clear filters
           </button>
         )}
       </div>
       {vans.length > 0 ? (
-        <section className='grid grid-cols-2 md:grid-cols-3 gap-4'>
+        <section className='grid grid-cols-2 lg:grid-cols-3 gap-4'>
           <VanTile />
         </section>
       ) : (
