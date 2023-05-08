@@ -21,7 +21,7 @@ const HostVans = () => {
   }, []);
 
   return (
-    <div className='pt-6 px-6 pb-20'>
+    <div className='pt-6 px-6 pb-20 md:mx-40'>
       <h1 className='text-2xl font-bold'>Your Listed Vans</h1>
       {vans.length > 0 ? (
         <div className='flex flex-col gap-4 mt-5 '>

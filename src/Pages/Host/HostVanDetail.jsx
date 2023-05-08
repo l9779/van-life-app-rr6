@@ -28,7 +28,7 @@ const HostVanDetail = () => {
   }, [params.id]);
 
   return (
-    <div className='p-6'>
+    <div className='p-6 md:mx-40'>
       <Link className='underline flex mb-4' to='..' relative='path'>
         &larr; <span>Back to all vans </span>
       </Link>

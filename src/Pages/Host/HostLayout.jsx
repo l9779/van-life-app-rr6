@@ -9,7 +9,7 @@ const HostLayout = () => {
 
   return (
     <>
-      <nav className='flex gap-1'>
+      <nav className='flex gap-1 md:mx-40'>
         <NavLink
           className='text-center w-24 text-zinc-800 hover:underline hover:text-black hover:font-semibold'
           style={({ isActive }) => (isActive ? activeStyle : null)}
