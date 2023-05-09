@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import Layout from './Components/Layout';
+import Error from './Components/Error';
 import Home from './Pages/Home';
 import About from './Pages/About';
 import Vans, { loader as vansLoader } from './Pages/Vans/Vans';
@@ -17,10 +18,10 @@ import Income from './Pages/Host/Income';
 import Reviews from './Pages/Host/Reviews';
 import HostVans from './Pages/Host/HostVans';
 import HostVanDetail from './Pages/Host/HostVanDetail';
+import NotFound from './Pages/NotFound';
 import HostVanDetails from './Components/Host/HostVanDetails';
 import HostVanPricing from './Components/Host/HostVanPricing';
 import HostVanPhotos from './Components/Host/HostVanPhotos';
-import NotFound from './Pages/NotFound';
 import './server';
 import './index.css';
 
@@ -29,7 +30,12 @@ const router = createBrowserRouter(
     <Route path='/' element={<Layout />}>
       <Route index element={<Home />} />
       <Route path='about' element={<About />} />
-      <Route path='vans' element={<Vans />} loader={vansLoader} />
+      <Route
+        path='vans'
+        element={<Vans />}
+        errorElement={<Error />}
+        loader={vansLoader}
+      />
       <Route path='vans/:id' element={<VanDetail />} />
       <Route path='host' element={<HostLayout />}>
         <Route index element={<Dashboard />} />

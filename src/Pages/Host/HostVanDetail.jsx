@@ -3,6 +3,10 @@ import { Link, NavLink, Outlet, useParams } from 'react-router-dom';
 
 import Loading from '../../Components/Loading';
 
+export function loader() {
+  return null;
+}
+
 const HostVanDetail = () => {
   const params = useParams();
   const [van, setVan] = useState(null);

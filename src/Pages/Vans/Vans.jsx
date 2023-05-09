@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link, useLoaderData, useSearchParams } from 'react-router-dom';
 
 import { getVans } from '../../api';
@@ -7,10 +6,7 @@ export function loader() {
   return getVans();
 }
 
-//https://youtu.be/nDGA3km5He4?t=20030
-
 const Vans = () => {
-  const [error, setError] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get('type');
 
@@ -54,10 +50,6 @@ const Vans = () => {
       </>
     );
   };
-
-  if (error) {
-    return <h1>There was a error: {error.message}</h1>;
-  }
 
   return (
     <div className='pt-4 px-4 md:px-28 lg:px-44 pb-24'>

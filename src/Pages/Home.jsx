@@ -6,7 +6,7 @@ const Home = () => {
       <h1 className='text-4xl font-bold mt-10 text-left sm:text-center text-white'>
         You got the travel plans, we got the travel vans.
       </h1>
-      <p className='text-white text-left sm:text-center'>
+      <p className='text-white text-left sm:text-lg sm:text-center'>
         Add adventure to your life by joining the #vanlife movement. Rent the
         perfect van to make your perfect road trip.
       </p>

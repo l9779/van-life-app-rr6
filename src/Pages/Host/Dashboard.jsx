@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom';
 
+export function loader() {
+  return null;
+}
+
 const Dashboard = () => {
   return (
     <div>

@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 
 import Loading from '../../Components/Loading';
 
+export function loader() {
+  return null;
+}
+
 const HostVans = () => {
   const [vans, setVans] = useState([]);
 

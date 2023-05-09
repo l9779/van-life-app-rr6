@@ -1,5 +1,9 @@
 import { NavLink, Outlet } from 'react-router-dom';
 
+export function loader() {
+  return null;
+}
+
 const HostLayout = () => {
   const activeStyle = {
     fontWeight: 'bold',
