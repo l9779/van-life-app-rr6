@@ -1,28 +1,20 @@
 import { useState } from 'react';
-import { useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useLoaderData, useSearchParams } from 'react-router-dom';
 
-import Loading from '../../Components/Loading';
+import { getVans } from '../../api';
+
+export function loader() {
+  return getVans();
+}
+
+//https://youtu.be/nDGA3km5He4?t=20030
 
 const Vans = () => {
-  const [vans, setVans] = useState([]);
+  const [error, setError] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
-
   const typeFilter = searchParams.get('type');
 
-  useEffect(() => {
-    async function getData() {
-      try {
-        const response = await fetch('/api/vans');
-        const data = await response.json();
-        setVans(data.vans);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    getData();
-  }, []);
+  const vans = useLoaderData();
 
   const VanTile = () => {
     const displayedVans = typeFilter
@@ -63,10 +55,13 @@ const Vans = () => {
     );
   };
 
+  if (error) {
+    return <h1>There was a error: {error.message}</h1>;
+  }
+
   return (
     <div className='pt-4 px-4 md:px-28 lg:px-44 pb-24'>
       <h1 className='font-bold text-2xl'>Explore our vans options</h1>
-      https://youtu.be/nDGA3km5He4?t=17250
       <div className='flex gap-4 sm:gap-x-4 mt-4 mb-8 sm:px-8'>
         <button
           onClick={() => setSearchParams({ type: 'simple' })}
@@ -110,13 +105,10 @@ const Vans = () => {
           </button>
         )}
       </div>
-      {vans.length > 0 ? (
-        <section className='grid grid-cols-2 lg:grid-cols-3 gap-4'>
-          <VanTile />
-        </section>
-      ) : (
-        <Loading />
-      )}
+
+      <section className='grid grid-cols-2 lg:grid-cols-3 gap-4'>
+        <VanTile />
+      </section>
     </div>
   );
 };
