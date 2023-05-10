@@ -1,5 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 
+import { User } from './icons';
+
 const Header = () => {
   const activeStyle = {
     fontWeight: 'bold',
@@ -8,7 +10,7 @@ const Header = () => {
   };
 
   return (
-    <header className='h-28 px-4 sm:px-16 lg:px-28 flex justify-between items-center bg-orange-50'>
+    <header className='h-28 px-4 sm:px-16 lg:px-28 flex gap-2 justify-between items-center bg-orange-50'>
       <Link to='/'>
         <img className='w-44' src='/img/logo.png' alt='vanlife logo' />
       </Link>
@@ -33,6 +35,9 @@ const Header = () => {
           to='vans'
         >
           Vans
+        </NavLink>
+        <NavLink to='login'>
+          <User />
         </NavLink>
       </nav>
     </header>

@@ -1,6 +1,10 @@
 import { getHostVans, getVans } from './api';
 import { requireAuth } from './utils';
 
+export function loginLoader({ request }) {
+  return new URL(request.url).searchParams.get('message');
+}
+
 export function vansLoader() {
   return getVans();
 }

@@ -8,7 +8,7 @@ import {
 import Layout from './Components/Layout';
 import Error from './Components/Error';
 import Home from './Pages/Home';
-import Login from './Pages/Login';
+import Login, { action as loginAction } from './Pages/Login';
 import About from './Pages/About';
 import Vans from './Pages/Vans/Vans';
 import VanDetail from './Pages/Vans/VanDetail';
@@ -23,6 +23,7 @@ import HostVanInfo from './Components/Host/HostVanInfo';
 import HostVanPricing from './Components/Host/HostVanPricing';
 import HostVanPhotos from './Components/Host/HostVanPhotos';
 import {
+  loginLoader,
   vansLoader,
   hostVansLoader,
   vanDetailLoader,
@@ -34,17 +35,23 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
       <Route index element={<Home />} />
-      <Route path='login' element={<Login />} />
+      <Route
+        path='login'
+        element={<Login />}
+        loader={loginLoader}
+        action={loginAction}
+        errorElement={<Error />}
+      />
       <Route path='about' element={<About />} />
       <Route
         path='vans'
         element={<Vans />}
-        errorElement={<Error />}
         loader={vansLoader}
+        errorElement={<Error />}
       />
       <Route path='vans/:id' element={<VanDetail />} loader={vanDetailLoader} />
 
-      <Route path='host' element={<HostLayout />}>
+      <Route path='host' element={<HostLayout />} errorElement={<Error />}>
         <Route
           index
           element={<Dashboard />}
