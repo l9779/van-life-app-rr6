@@ -1,6 +1,6 @@
 import { useOutletContext } from 'react-router-dom';
 
-const HostVanDetails = () => {
+const HostVanInfo = () => {
   const { name, type, description } = useOutletContext();
   return (
     <article className='flex flex-col gap-2'>
@@ -23,4 +23,4 @@ const HostVanDetails = () => {
     </article>
   );
 };
-export default HostVanDetails;
+export default HostVanInfo;

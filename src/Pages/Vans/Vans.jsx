@@ -1,11 +1,5 @@
 import { Link, useLoaderData, useSearchParams } from 'react-router-dom';
 
-import { getVans } from '../../api';
-
-export function loader() {
-  return getVans();
-}
-
 const Vans = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get('type');

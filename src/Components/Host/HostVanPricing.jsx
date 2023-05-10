@@ -1,9 +1,5 @@
 import { useOutletContext } from 'react-router-dom';
 
-export function loader() {
-  return null;
-}
-
 const HostVanPrice = () => {
   const { price } = useOutletContext();
 
