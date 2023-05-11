@@ -1,53 +1,46 @@
-import { Link, useLoaderData, useSearchParams } from 'react-router-dom';
+import { Await, Link, useLoaderData, useSearchParams } from 'react-router-dom';
 
 const Vans = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const vans = useLoaderData();
   const typeFilter = searchParams.get('type');
 
-  const vans = useLoaderData();
+  const displayedVans = typeFilter
+    ? vans.filter((van) => van.type === typeFilter)
+    : vans;
 
-  const VanTile = () => {
-    const displayedVans = typeFilter
-      ? vans.filter((van) => van.type === typeFilter)
-      : vans;
-
+  const vanElements = displayedVans.map((van) => {
+    const { id, name, price, imageUrl, type } = van;
     return (
-      <>
-        {displayedVans.map((van) => {
-          const { id, name, price, imageUrl, type } = van;
-
-          return (
-            <Link
-              className='w-54 p-4 bg-white rounded-sm'
-              to={id}
-              state={{ search: searchParams.toString(), type: typeFilter }}
-              key={id}
-            >
-              <img className='min-w-48 rounded-md' src={imageUrl} alt={name} />
-              <div className='min-w-48 sm:grid sm:grid-cols-3'>
-                <h2 className='font-bold text-base sm:text-lg sm:col-span-2 capitalize'>
-                  {name}
-                </h2>
-                <div className='sm:col-span-1 justify-self-end'>
-                  <b className='font-bold text-base sm:text-lg'>${price}</b>
-                  <span className='text-sm'>/day</span>
-                </div>
-                <h2
-                  className={`text-white text-center font-semibold rounded-md p-1 mt-2 w-20 capitalize bg-${type}`}
-                >
-                  {type}
-                </h2>
-              </div>
-            </Link>
-          );
-        })}
-      </>
+      <Link
+        className='w-54 p-4 bg-white rounded-sm'
+        to={id}
+        state={{ search: searchParams.toString(), type: typeFilter }}
+        key={id}
+      >
+        <img className='min-w-48 rounded-md' src={imageUrl} alt={name} />
+        <div className='min-w-48 sm:grid sm:grid-cols-3'>
+          <h2 className='font-bold text-base sm:text-lg sm:col-span-2 capitalize'>
+            {name}
+          </h2>
+          <div className='sm:col-span-1 justify-self-end'>
+            <b className='font-bold text-base sm:text-lg'>${price}</b>
+            <span className='text-sm'>/day</span>
+          </div>
+          <h2
+            className={`text-white text-center font-semibold rounded-md p-1 mt-2 w-20 capitalize bg-${type}`}
+          >
+            {type}
+          </h2>
+        </div>
+      </Link>
     );
-  };
+  });
 
   return (
     <div className='pt-4 px-4 md:px-28 lg:px-44 pb-24'>
       <h1 className='font-bold text-2xl'>Explore our vans options</h1>
+
       <div className='flex gap-4 sm:gap-x-4 mt-4 mb-8 sm:px-8'>
         <button
           onClick={() => setSearchParams({ type: 'simple' })}
@@ -91,9 +84,8 @@ const Vans = () => {
           </button>
         )}
       </div>
-
       <section className='grid grid-cols-2 lg:grid-cols-3 gap-4'>
-        <VanTile />
+        <Await resolve={vans}>{vanElements}</Await>
       </section>
     </div>
   );

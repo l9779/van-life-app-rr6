@@ -1,8 +1,13 @@
 import { Link, NavLink } from 'react-router-dom';
+import { useState } from 'react';
 
-import { User } from './icons';
+import { UserIcon, LogoutIcon } from './icons';
 
 const Header = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem('loggedIn')
+  );
+
   const activeStyle = {
     fontWeight: 'bold',
     textDecoration: 'underline',
@@ -36,9 +41,20 @@ const Header = () => {
         >
           Vans
         </NavLink>
-        <NavLink to='login'>
-          <User />
-        </NavLink>
+        {isLoggedIn ? (
+          <NavLink
+            onClick={() => {
+              localStorage.clear();
+              setIsLoggedIn(false);
+            }}
+          >
+            <LogoutIcon />
+          </NavLink>
+        ) : (
+          <NavLink to='login'>
+            <UserIcon />
+          </NavLink>
+        )}
       </nav>
     </header>
   );
