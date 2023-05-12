@@ -1,8 +1,7 @@
 import { defer, redirect } from 'react-router-dom';
 
-import { getHostVans, getVans } from './api';
-import { loginUser } from './api';
-
+import { getHostVans, getVans, loginUser } from './api';
+//https://youtu.be/nDGA3km5He4?t=32911
 export async function requireAuth(request) {
   const isLoggedIn = localStorage.getItem('loggedIn');
   const pathname = new URL(request.url).pathname;
@@ -20,21 +19,21 @@ export function loginLoader({ request }) {
 }
 
 export function vansLoader() {
-  return getVans();
+  return defer({ vans: getVans() });
 }
 
 export function vanDetailLoader({ params }) {
-  return getVans(params.id);
+  return defer({ van: getVans(params.id) });
 }
 
 export async function hostVansLoader({ request }) {
   await requireAuth(request);
-  return getHostVans();
+  return defer({ vans: getHostVans() });
 }
 
 export async function hostVanInfoLoader({ params, request }) {
   await requireAuth(request);
-  return getHostVans(params.id);
+  return defer({ van: getHostVans(params.id) });
 }
 
 export const loginAction = async ({ request }) => {

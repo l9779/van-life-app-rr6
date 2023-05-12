@@ -1,4 +1,7 @@
-import { Link, NavLink, Outlet, useLoaderData } from 'react-router-dom';
+import { Suspense } from 'react';
+import { Await, Link, NavLink, Outlet, useLoaderData } from 'react-router-dom';
+
+import Loading from '../../Components/Loading';
 
 const HostVanDetail = () => {
   const activeStyle = {
@@ -7,14 +10,10 @@ const HostVanDetail = () => {
     color: '#161616',
   };
 
-  const van = useLoaderData();
+  const dataPromise = useLoaderData();
 
-  return (
-    <div className='p-6 md:mx-40'>
-      <Link className='underline flex mb-4' to='..' relative='path'>
-        &larr; <span>Back to all vans </span>
-      </Link>
-
+  function renderVanElement(van) {
+    return (
       <article className='grid grid-cols-3 md:grid-cols-5 grid-rows-4 rounded-md gap-x-4 p-4 mb-20 bg-white'>
         <img
           className='rounded-sm w-56 col-span-1 row-span-3'
@@ -61,6 +60,17 @@ const HostVanDetail = () => {
           <Outlet context={van} />
         </section>
       </article>
+    );
+  }
+
+  return (
+    <div className='p-6 md:mx-40'>
+      <Link className='underline flex mb-4' to='..' relative='path'>
+        &larr; <span>Back to all vans </span>
+      </Link>
+      <Suspense fallback={<Loading />}>
+        <Await resolve={dataPromise.van}>{renderVanElement}</Await>
+      </Suspense>
     </div>
   );
 };
