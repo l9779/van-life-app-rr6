@@ -1,4 +1,4 @@
-import { redirect } from 'react-router-dom';
+import { defer, redirect } from 'react-router-dom';
 
 import { getHostVans, getVans } from './api';
 import { loginUser } from './api';

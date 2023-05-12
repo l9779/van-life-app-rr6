@@ -31,7 +31,7 @@ import {
   loginAction,
   requireAuth,
 } from './utils';
-
+//https://youtu.be/nDGA3km5He4?t=32068
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
