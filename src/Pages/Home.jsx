@@ -2,7 +2,7 @@ import BtnExploreVans from '../Components/BtnExploreVans';
 
 const Home = () => {
   return (
-    <div className='home-bg bg-cover h-96 sm:h-screen sm:pt-16 px-6 sm:px-32 flex flex-col gap-10 sm:gap-20'>
+    <div className='home-bg bg-cover h-screen  sm:pt-16 px-6 sm:px-32 flex flex-col gap-10 sm:gap-20'>
       <h1 className='text-4xl font-bold mt-10 text-left sm:text-center text-white'>
         You got the travel plans, we got the travel vans.
       </h1>

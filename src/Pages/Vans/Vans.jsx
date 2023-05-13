@@ -22,7 +22,7 @@ const Vans = () => {
           key={id}
         >
           <img className='min-w-48 rounded-md' src={imageUrl} alt={name} />
-          <div className='min-w-48 sm:grid sm:grid-cols-3'>
+          <div className='min-w-48 h-28 sm:h-20 relative sm:grid sm:grid-cols-3'>
             <h2 className='font-bold text-base sm:text-lg sm:col-span-2 capitalize'>
               {name}
             </h2>
@@ -31,7 +31,7 @@ const Vans = () => {
               <span className='text-sm'>/day</span>
             </div>
             <h2
-              className={`text-white text-center font-semibold rounded-md p-1 mt-2 w-20 capitalize bg-${type}`}
+              className={`text-white text-center absolute bottom-0 font-semibold rounded-md p-1 mt-2 w-20 capitalize bg-${type}`}
             >
               {type}
             </h2>
