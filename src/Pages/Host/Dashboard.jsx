@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { Await, useLoaderData } from 'react-router-dom';
+import { Await, Link, useLoaderData } from 'react-router-dom';
 import { BsStarFill } from 'react-icons/bs';
 
 import Loading from '../../Components/Loading';
@@ -23,7 +23,9 @@ const Dashboard = () => {
               <span>/day</span>
             </p>
           </div>
-          <h3 className='w-[10%] '>Edit</h3>
+          <Link to={`vans/${id}`} className='w-[10%] '>
+            <h3 className='hover:underline hover:font-semibold'>Edit</h3>
+          </Link>
         </div>
       );
     });
@@ -42,7 +44,9 @@ const Dashboard = () => {
             Income last&nbsp;
             <span className='text-gray-800 underline font-bold'>30 Days</span>
           </p>
-          <h2>Details</h2>
+          <Link to='reviews'>
+            <h2 className='hover:underline hover:font-semibold'>Details</h2>
+          </Link>
         </div>
         <h1 className='font-extrabold text-4xl'>$2,260</h1>
       </section>
@@ -56,13 +60,17 @@ const Dashboard = () => {
             <span>/5</span>
           </p>
         </div>
-        <h2>Details</h2>
+        <Link to='reviews'>
+          <h2 className='hover:underline hover:font-semibold'>Details</h2>
+        </Link>
       </section>
 
       <section className='p-4 mb-20'>
         <div className='flex justify-between mb-4'>
           <h1 className='text-lg font-bold'>Your listed vans</h1>
-          <h2>View all</h2>
+          <Link to='vans'>
+            <h2 className='hover:underline hover:font-semibold'>View all</h2>
+          </Link>
         </div>
         <Suspense fallback={<Loading />}>
           <Await resolve={dataPromise.vans}>{renderVanElements}</Await>
